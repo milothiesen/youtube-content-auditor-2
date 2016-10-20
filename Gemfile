@@ -28,6 +28,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'sprockets'
 gem "omniauth-google-oauth2"
+gem 'figaro'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
