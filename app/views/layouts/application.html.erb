@@ -26,11 +26,11 @@
           <ul class="nav navbar-nav">
           	<% if user_signed_in? %>
 	        	<li><%= link_to 'A user is signed in!', '#' %></li>
-	        	<li><a href="#contact">Sign Out</a></li>
+	        	<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
 	      	<% else %>
 		    	<li><%= link_to 'No user is signed in :(', '#' %></li>
-		    	<li><a href="#contact">Sign Up</a></li>
-		    	<li class="active"><a href="#">Sign In</a></li>
+		    	<li><%= link_to 'Sign in', new_user_session_path %></li>
+		    	<li><%= link_to 'Sign up', new_user_registration_path %></li>
 		     <% end %>
             
            
@@ -39,10 +39,12 @@
       </div>
     </nav>
     <!--/.nav-collapse -->
-
-  	<p class="alert alert-dismissible alert-success"><%= notice %></p>
-	<p class="alert alert-dismissible alert-danger"><%= alert %></p>
-
+	<% if notice.present? %>
+	  <p class="alert alert-info"><%= notice %></p>
+	<% end %>
+	<% if alert.present? %>
+	  <p class="alert alert-danger"><%= alert %></p>
+	<% end %>
 
     <%= yield %>
   </body>
