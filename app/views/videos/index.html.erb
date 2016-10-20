@@ -1,3 +1,16 @@
 <h1>Hello YouTube Data API v3</h1>
 
 <p>TESTING!!!!</p>
+
+<%= link_to "Login to YouTube", Yt::Account.new(scopes: ["youtube"], redirect_uri: ENV['YT_REDIRECT_URI']).authentication_url, target: :_blank %>
+
+<% if @account %>
+  
+  <%= link_to 'Download CSV', csv_videos_path(access_token: @account.access_token), target: :_blank %>
+  <hr/>
+  <% @account.videos.each do |video| %>
+    <tr>
+      <td><%= video.title %></td>
+    </tr>
+  <% end %>
+<% end %>
