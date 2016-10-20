@@ -1,2 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@media (min-width: 768px) {
+	.navbar-nav {
+		float:right;
+	}	
+}

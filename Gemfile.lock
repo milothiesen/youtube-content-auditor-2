@@ -42,8 +42,6 @@ GEM
     autoprefixer-rails (6.5.1)
       execjs
     bcrypt (3.1.11)
-    bootstrap-material-design (0.2.2)
-      bootstrap-sass (~> 3.0)
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
@@ -221,7 +219,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-material-design
   bootstrap-sass (~> 3.3.5.1)
   byebug
   coffee-rails (~> 4.2)
