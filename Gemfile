@@ -27,6 +27,9 @@ gem 'yt', '~> 0.28.0'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'sprockets'
+gem "omniauth-google-oauth2"
+gem 'bootstrap-material-design'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
