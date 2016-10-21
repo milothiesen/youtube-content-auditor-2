@@ -1,6 +1,4 @@
-<h1>Hello YouTube Data API v3</h1>
-
-<p>TESTING!!!!</p>
+<h1>YouTube Caption Audit</h1>
 
 <%= link_to "Login to YouTube", Yt::Account.new(scopes: ["youtube"], redirect_uri: ENV['YT_REDIRECT_URI']).authentication_url, target: :_blank %>
 

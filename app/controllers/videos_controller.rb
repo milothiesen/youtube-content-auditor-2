@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+	
 	def index
 	  @account = Yt::Account.new(authorization_code: params[:code], redirect_uri: ENV['YT_REDIRECT_URI']) if params[:code].present?
 	end
