@@ -6,9 +6,29 @@
   
   <%= link_to 'Download CSV', csv_videos_path(access_token: @account.access_token), target: :_blank %>
   <hr/>
-  <% @account.videos.each do |video| %>
-    <tr>
-      <td><%= video.title %></td>
-    </tr>
-  <% end %>
+  <table class="table table-striped sortable">
+  	<thead>
+  		<tr>
+      		<th>Title</th>
+      		<th>Published</th>
+      		<th>Run Time</th>
+      		<th>Captioned?</th>
+      		<th>HD?</th>
+      		<th>Current Views</th>
+      		<th>Link</th>
+      		<th>Description</th>
+    	</tr>
+
+  	</thead>
+  	<tbody>
+	  <% @account.videos.each do |video| %>
+	    <tr>
+	      <td><%= video.title %></td>
+	    </tr>
+	  <% end %>
+	</tbody>
+</table>  	
 <% end %>
+
+
+<div style="max-width: 500px;" id="_giphy_3o6Zt2EaIuNqzXcHuw"></div><script> _gif_artist = "julienpiau"; _gif_artist_avatar = "https://media3.giphy.com/avatars/julien-piau/a1855VhwJDVe.jpg"; var _giphy = _giphy || []; _giphy.push({id: "3o6Zt2EaIuNqzXcHuw",w: 1200, h: 975, clickthrough_url: "http://giphy.com/gifs/illustration-stegosaurus-3o6Zt2EaIuNqzXcHuw"});var g = document.createElement("script"); g.type = "text/javascript"; g.async = true;g.src = ("https:" == document.location.protocol ? "https://" : "http://") + "giphy.com/static/js/widgets/embed.js";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(g, s);</script>

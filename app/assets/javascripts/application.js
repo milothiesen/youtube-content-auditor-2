@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-table
+//= require locale/bootstrap-table-ru-RU
 //= require_tree .
