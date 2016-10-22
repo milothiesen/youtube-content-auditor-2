@@ -1,0 +1,42 @@
+<h1><%= link_to "Get YouTube Data", Yt::Account.new(scopes: ["youtube"], redirect_uri: ENV['YT_REDIRECT_URI']).authentication_url, target: :_blank %></h1>
+
+<% if @account %>
+  
+  <%= link_to 'Download CSV', csv_videos_path(access_token: @account.access_token), target: :_blank %>
+  <hr/>
+
+ <% duration = @account.videos.map do |video| %>
+    <% video.public? ? video.duration : 0 %>
+	  <% end %>
+	  <% total_duration = duration.sum %>
+  <h2>Total Duration of all uncaptioned video = <%= "%02d:%02d:%02d:%02d" % [total_duration/86400, total_duration/3600%24, total_duration/60%60, total_duration%60]%></h2>
+
+  <table class="table table-striped sortable">
+  	<thead>
+  		<tr>
+      		<th>Title</th>
+      		<th>Published</th>
+      		<th>Run Time</th>
+      		<th>Captioned?</th>
+      		<th>HD?</th>
+      		<th>Total Views</th>
+      		<th>Description</th>
+    	</tr>
+
+  	</thead>
+  	<tbody>
+	  <% @account.videos.each do |video| %>
+	    <tr>
+	      <td><a href="https://www.youtube.com/watch?v=<% video.id %>" target="_blank><%= video.title %><a/></td>
+	      <td><%= video.published_at %></td>
+	      <% t = video.duration %>
+	      <td><%= "%02d:%02d:%02d:%02d" % [t/86400, t/3600%24, t/60%60, t%60]%></td>
+	      <td><%= video.captioned? %></td>
+	      <td><%= video.hd? %></td>
+	      <td><%= video.views[:total] %></td>
+	      <td><%= video.description %></td>
+	    </tr>
+	  <% end %>
+	</tbody>
+</table>  	
+<% end %>
