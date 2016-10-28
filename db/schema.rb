@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022051234) do
+ActiveRecord::Schema.define(version: 20161028035243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "account_name"
+    t.integer  "account_subscribers"
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",         default: 0, null: false
@@ -51,8 +65,19 @@ ActiveRecord::Schema.define(version: 20161022051234) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "title"
+    t.string   "publish_date"
+    t.integer  "duration"
+    t.boolean  "captioned?"
+    t.string   "privacy_status"
+    t.string   "url"
+    t.boolean  "HD?"
+    t.integer  "total_views"
+    t.text     "description"
+    t.integer  "account_id"
+    t.index ["account_id"], name: "index_videos_on_account_id", using: :btree
   end
 
 end
