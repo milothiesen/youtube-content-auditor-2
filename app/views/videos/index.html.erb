@@ -4,4 +4,38 @@
   
   <%= link_to 'Download CSV', csv_videos_path(access_token: @account.access_token), target: :_blank %>
   <hr/>
+
+
+
+<div class="Csv">
+  <%= link_to 'Generate CSV', csv_videos_path(access_token: @account.access_token), remote: true, class: 'btn btn-primary btn-lg' %>
+  <div class="well" style="display:none">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="progress-status text-primary"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="progress progress-striped active">
+          <div class="progress-bar">
+            <div class="text-primary">
+              0%
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'View csv', '/system/export.csv', class: 'btn btn-success export-link', style: 'display:none' %>
+</div>
+
+
+
+
+
+
+
+
+
 <% end %>

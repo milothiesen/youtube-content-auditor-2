@@ -6,6 +6,7 @@ devise_for :users
 devise_scope :user do
   authenticated :user do
     root 'videos#index', as: :authenticated_root
+    get 'csv_videos_path' => 'progress#show', as: :csv_videos_path
   end
 
   unauthenticated do

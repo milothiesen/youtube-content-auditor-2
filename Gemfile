@@ -32,6 +32,7 @@ gem 'figaro'
 gem "bootstrap-table-rails"
 gem 'delayed_job_active_record'
 gem 'progress_job'
+gem 'sidekiq'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
